@@ -1,0 +1,40 @@
+-- Step 2 - querys to understand the tables/data 
+
+-- SELECT *
+-- FROM users
+-- LIMIT 20;
+
+-- SELECT *
+-- FROM progress
+-- LIMIT 20;
+
+-- Step 3 - Playing with formating DATETIME and 'query for the sign up counts for each hour.'
+
+-- SELECT sign_up_at,
+--    strftime('%m/%d/%Y at %H:%M.%S', sign_up_at) AS 'Sign Up'
+-- FROM users
+-- GROUP BY 1
+-- LIMIT 20;
+
+-- SELECT strftime('%H', sign_up_at) AS 'Sign Up Hour',
+-- COUNT(*) AS "Count of sign up's per hour'"
+-- FROM users
+-- GROUP BY 1
+-- ORDER BY 1;
+
+-- Step 4 - Using Join.
+
+-- SELECT users.user_id,
+--    users.email_domain,
+--    users.city,
+--    users.country,
+--    progress.learn_cpp,
+--    progress.learn_sql,
+--    progress.learn_html,
+--    progress.learn_javascript,
+--    progress.learn_java
+-- FROM users
+-- JOIN progress
+--   ON users.user_id = progress.user_id
+--   WHERE city = "New York" AND learn_cpp = "started"
+-- LIMIT 100;
